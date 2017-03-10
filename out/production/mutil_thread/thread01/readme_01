@@ -1,0 +1,16 @@
+
+参考：http://www.cnblogs.com/skywang12345/p/3479063.html
+
+
+Thread 和 Runnable 的异同点：
+ 相同点：都是“多线程的实现方式”
+ 不同点:
+     Thread 是类，而Runnable是接口
+
+ 选择：
+    1,因为Thread是类，而Runnable是接口，所以使用Runnable的扩展性会更好;
+    2.由于Thread也是实现Runnable接口的类。故Runnable可以用于“资源的共享”。即，多个线程都是基于一个Runnable对象建立的，
+    他们会共享Runnable对象上的资源。
+
+   综上所述：
+    建议使用“Runnable”实现多线程 !!!

@@ -1,0 +1,47 @@
+
+This is no doubt that 多线程是Java中不可避免的一个重要主题。
+
+JUC : Java.util.concurrent包
+
+Java中的Thread类保存了一些属性信息：
+ 1. ID:每个线程的独特标识；
+ 2. Name:线程的名称；
+ 3. Priority:线程的优先级。优先级在(0-10)之间，1是最低级，10是最高级；(不建议改变线程的优先级)
+ 4. Status:线程的状态。
+
+
+
+线程共有6中状态：
+（1）New：刚new的线程就处于该状态；
+（2）Runnable: 正在Java虚拟机中运行的状态就是处于该状态；
+（3）Blocked:阻塞等待监视锁
+ (4) Waiting: 不确定的等待or另一个线程正在运行
+ (5）Timed_waiting:在特定的等待时间等待其他线程执行
+ (6) Terminated:线程已经退出
+
+
+参考自官方文档：https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html
+
+ A thread state. A thread can be in one of the following states:
+     NEW
+ A thread that has not yet started is in this state.
+     RUNNABLE
+ A thread executing in the Java virtual machine is in this state.
+     BLOCKED
+ A thread that is blocked waiting for a monitor lock is in this state.
+     WAITING
+ A thread that is waiting indefinitely for another thread to perform a particular action is in this state.
+     TIMED_WAITING
+ A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.
+    TERMINATED
+ A thread that has exited is in this state.
+
+ ------------------------------------------------------------------------------------------------------------------------------------
+ 参考自：http://www.whizlabs.com/blog/thread-states-java/
+
+ 关于线程状态的另一种说法：
+ 1.新建状态(New): 新创建一个Thread实例，但还未调用start()方法。该状态下，thread is not active;
+ 2.就绪状态(Runnable): 一旦线程调用了start方法，该线程将处于就绪状态，致使线程有能力执行。
+ 3.运行状态(Running):当线程得到线程调度器(Thread Scheduler)选中执行；
+ 4.阻塞状态(Blocked，waiting，sleeping):线程处于等待，睡眠，阻塞状态；
+ 5.死亡状态(Dead): 线程的run()方法执行结束。如果a dead thread调用start()方法导致 runtime exception;
